@@ -1,0 +1,11 @@
+public class SingleAnswer extends Question{
+    private int answer;
+    
+    public void setAnswer(int answer) {
+        this.answer = answer;
+    }
+    
+    public int [] getAnswerChoices() {
+    	return answer;
+    }
+}

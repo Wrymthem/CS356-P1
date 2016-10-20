@@ -1,0 +1,3 @@
+public class SingleAnswer extends Question{
+	String answer;
+}

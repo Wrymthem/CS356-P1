@@ -1,0 +1,6 @@
+
+public class IVoteService {
+
+	private Question question;
+	
+}

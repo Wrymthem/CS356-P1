@@ -1,0 +1,26 @@
+class SimulationDriver {
+    public static void main (String [] args) throws NullPointerException {
+        Student student = new Student(1220);
+        Question question1 = new MultiAnswer();
+        //Question question2 = new SingleAnswer();
+        
+        question1.setQuestion("Who is the coolest person in the world?");
+        String [] choices = {"Johan Silla", "Manny Sosa", "Sean Brandt", "Zack Doherty", "Oogy Boogy"};
+        question1.setAnswer(choices);
+        
+        question1.printQuestion();
+        
+        student.setAnswer();
+        
+        /*question2.setQuestion("What is your ID?");
+        question2.setAnswer("1220");
+        
+        System.out.println(question1.getQuestion());
+        System.out.println(question1.getAnswer());
+        System.out.println();
+        System.out.println(question2.getQuestion());
+        System.out.println(question2.getAnswer());
+        System.out.println();
+        System.out.println(student.getID());*/
+    }
+}

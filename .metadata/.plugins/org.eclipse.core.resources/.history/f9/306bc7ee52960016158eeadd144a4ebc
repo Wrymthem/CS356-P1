@@ -1,0 +1,35 @@
+public class Student {
+    
+    private int iD;
+    private String name;
+    private int answer;
+    
+    public Student (int iD, String name) {
+        this.setID(iD);
+        this.setName(name);
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public void setID(int iD) {
+        this.iD = iD;
+    }
+    
+    public void setAnswer(int [] answer) {
+    	this.answer = answer;
+    }
+    
+    public String getName() {
+        return this.name;
+    }
+    
+    public int getID() {
+        return this.iD;
+    }
+    
+    public int [] getAnswer() {
+    	return this.answer;
+    }
+}

@@ -1,0 +1,35 @@
+import java.util.Random;
+
+public class SingleAnswer extends Question{
+    private String [] answer = {"True", "False"};
+    private int [] solution;
+    
+    public void setAnswer() {
+        this.answer = answer;
+        this.setSolution(answer.length);
+    }
+    
+    public String [] getAnswer() {
+    	return answer;
+    }
+    
+    public void setSolution(int choices) {
+    	this.solution = new int [choices];
+    	
+    	for (int i = 0; i < this.solution.length; i++) {
+    		this.solution[i] = 0;
+    	}
+    	
+    	Random rand = new Random();
+    	solution[rand.nextInt(this.solution.length)] = 1;
+    }
+    
+    public int [] getSolution() {
+    	return solution;
+    }
+    
+    public String [] getChoices() {
+    	String [] temp = {"True", "False"};
+    	return temp;
+    }
+}

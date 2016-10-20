@@ -1,0 +1,63 @@
+import java.util.Random;
+
+class SimulationDriver {
+    public static void main (String [] args) throws NullPointerException {    	
+        Question question1 = new MultiAnswer();
+        IVoteService ivs = new IVoteService();
+        Question question2 = new SingleAnswer();
+        
+        question1.setQuestion("Who is the coolest person in the world?");
+        String [] choices = {"Johan Silla", "Manny Sosa", "Sean Brandt", "Zack Doherty", "Oogy Boogy"};
+        question1.setAnswer(choices);
+        ivs.setQuestion(question1);
+        
+        question1.printQuestion();
+        
+        for (int i = 0; i < 30; i++) {
+        	Student student = new Student((i + 1));
+        	int [] answer = {0, 0, 1, 0, 0};
+        	student.setAnswer(question1, answer);
+        	ivs.getAnswer(student);
+        }
+        
+        ivs.printTotals();
+        
+        /*System.out.println();
+        if (ivs.correctAnswer(student)) {
+        	System.out.println("Correct!");
+        } else {
+        	System.out.println("Incorrect!");
+        }
+        
+        System.out.println();/////////////////////////////////////
+        System.out.println();////////////////////////////////////*/
+        
+        /*question2.setQuestion("Is Johan awesome?");
+        choices = new String [] {"True", "False"};
+        question2.setAnswer(choices);
+        
+        question2.printQuestion();
+        
+        answer = new int [] {1, 0};
+        student.setAnswer(question2, answer);
+        ivs.setQuestion(question2);
+        ivs.getAnswer(student);
+        
+        System.out.println();
+        if (ivs.correctAnswer(student)) {
+        	System.out.println("Correct!");
+        } else {
+        	System.out.println("Incorrect!");
+        }*/
+    }
+    
+    public void swap(int [] firstSwap) {
+    	Random rand = new Random();
+    	for (int i = (firstSwap.length - 1); i > 0; i--) {
+    		int current = rand.nextInt(i + 1);
+    		int temp1 = firstSwap[i];
+    		firstSwap[i] = firstSwap[current];
+    		firstSwap[current] = temp1;
+    	}
+    }
+}

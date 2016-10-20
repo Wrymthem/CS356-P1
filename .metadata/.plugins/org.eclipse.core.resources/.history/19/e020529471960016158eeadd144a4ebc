@@ -1,0 +1,23 @@
+
+public class IVoteService {
+
+	private Question question;
+	private int [] answer;
+	
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+	
+	public void getAnswer(Student student) {
+		this.answer = student.getAnswer();
+	}
+	
+	public boolean correctAnswer() {
+		for (int i = 0; i < answer.length; i++) {
+			if (question.getSolution()[i] == 1 && answer[i] == 1) {
+				return true;
+			}
+		}
+		return false;
+	}
+}

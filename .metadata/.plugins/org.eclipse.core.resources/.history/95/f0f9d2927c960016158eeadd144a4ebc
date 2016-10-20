@@ -1,0 +1,42 @@
+import java.util.Random;
+
+class SimulationDriver {
+    public static void main (String [] args) throws NullPointerException {
+        IVoteService ivs = new IVoteService();
+        
+        // MultiAnswer first
+        Question question1 = new MultiAnswer();
+        
+        question1.setQuestion("Who is the coolest person in the world?");
+        String [] choices = {"Johan Silla", "Manny Sosa", "Sean Brandt", "Zack Doherty", "Oogy Boogy"};
+        question1.setAnswer(choices);
+        ivs.setQuestion(question1);
+        
+        question1.printQuestion();
+        
+        for (int i = 0; i < 30; i++) {
+        	Student student = new Student((i + 1));
+        	int [] answer = {1, 0, 0, 0, 0};
+        	
+        	swap(answer);
+        	
+        	student.setAnswer(question1, answer);
+        	ivs.getAnswer(student);
+        }
+        
+        ivs.printTotals();
+        
+        
+        Question question2 = new SingleAnswer();
+    }
+    
+    public static void swap(int [] firstSwap) {
+    	Random rand = new Random();
+    	for (int i = (firstSwap.length - 1); i > 0; i--) {
+    		int current = rand.nextInt(i + 1);
+    		int temp1 = firstSwap[i];
+    		firstSwap[i] = firstSwap[current];
+    		firstSwap[current] = temp1;
+    	}
+    }
+}

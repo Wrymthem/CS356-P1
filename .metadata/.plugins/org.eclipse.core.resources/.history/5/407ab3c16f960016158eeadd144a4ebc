@@ -1,0 +1,44 @@
+import java.util.Random;
+
+public class SingleAnswer extends Question{
+    private String [] answer;
+    private int [] solution;
+    private String [] choices = {"True", "False"};
+    
+    public void setAnswer(String [] answer) {
+        this.answer = answer;
+        this.setSolution();
+    }
+    
+    public String [] getAnswer() {
+    	return answer;
+    }
+    
+    public void setSolution() {
+    	this.solution = new int [choices];
+    	
+    	for (int i = 0; i < this.solution.length; i++) {
+    		this.solution[i] = 0;
+    	}
+    	
+    	Random rand = new Random();
+    	solution[rand.nextInt(this.solution.length)] = 1;
+    }
+    
+    public int [] getSolution() {
+    	return solution;
+    }
+    
+    public String [] getChoices() {
+    	String [] temp = {"True", "False"};
+    	return temp;
+    }
+    
+    public void printQuestion() {
+    	System.out.println(this.getQuestion());
+    	System.out.println();
+    	for (int i = 0; i < this.answer.length; i++) {
+    		System.out.println((i + 1) + ". " + answer[i]);
+    	}
+    }
+}

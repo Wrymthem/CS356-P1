@@ -1,0 +1,15 @@
+class SimulationDriver {
+    public static void main (String [] args) {
+        Student student = new Student(1220, "Peter");
+        Question question = new MultiQuestion();
+        
+        question.setQuestion("Who is the coolest person in the world?");
+        String [] answers = {"Johan", "Silla"};
+        question.setAnswer(answers);
+        
+        System.out.println(question.getQuestion());
+        System.out.println(question.getAnswer());
+        System.out.println(student.getID());
+        System.out.println(student.getName());
+    }
+}

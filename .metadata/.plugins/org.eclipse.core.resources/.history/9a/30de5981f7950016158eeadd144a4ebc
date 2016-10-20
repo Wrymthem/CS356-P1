@@ -1,0 +1,5 @@
+public class SingleAnswer extends Question{
+	private String answer;
+	
+	public void setAnswer()
+}

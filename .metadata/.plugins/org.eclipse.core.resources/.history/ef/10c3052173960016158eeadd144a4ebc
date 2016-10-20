@@ -1,0 +1,54 @@
+import java.util.Random;
+
+public class MultiAnswer extends Question {
+	
+    private String [] answer;
+    private int [] solution;
+    private String [] choices;
+    
+    public void setAnswer(String [] answer) {
+        this.answer = answer;
+        
+        this.setSolution();
+    }
+    
+    public String [] getAnswer() {
+    	return answer;
+    }
+    
+    public void setSolution() {
+    	this.choices = this.answer;
+    	swap(choices);
+    	
+    	this.solution = new int[choices.length];
+    	for (int i = 0; i < choices.length; i++) {
+    		if (choices[i].matches(answer[0])) {
+    			solution[i] = 1;
+    		} else { 
+    			solution[i] = 0;
+    		}
+    	}
+    }
+    
+    public int [] getSolution() {
+    	return solution;
+    }
+    
+    public void printQuestion() {
+    	System.out.println(this.getQuestion());
+    	System.out.println();
+    	for (int i = 0; i < this.answer.length; i++) {
+    		System.out.println((i + 1) + ". " + choices[i]);
+    	}
+    }
+    
+    public void swap(String [] toSwap) {
+    	Random rand = new Random();
+    	for (int i = (choices.length - 1); i > 0; i--) {
+    		int current = rand.nextInt(i + 1);
+    		String temp = toSwap[i];
+    		toSwap[i] = toSwap[current];
+    		toSwap[current] = temp;
+    	}
+    }
+}

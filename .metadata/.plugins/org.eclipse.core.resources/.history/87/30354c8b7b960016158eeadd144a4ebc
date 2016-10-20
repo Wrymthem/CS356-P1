@@ -1,0 +1,39 @@
+import java.util.Hashtable;
+
+public class IVoteService {
+
+	private Hashtable <Integer, int []> table = new Hashtable <Integer, int []> ();
+	private Question question;
+	private int [] answers;
+	private int [] totalAnswers;
+	
+	public void setQuestion(Question question) {
+		table.clear();
+		this.question = question;
+		this.answers = question.getSolution();
+	}
+	
+	public void getAnswer(Student student) {
+		table.put(student.getID(), student.getAnswer());
+	}
+	
+	public boolean correctAnswer(Student student) {
+		for (int i = 0; i < answers.length; i++) {
+			if (student.getAnswer()[i] != answers[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public int [] setTotalAnswers() {
+		int [] totals = new int[question.getSolution().length];
+		for (int [] answerCheck : table.values()) {
+			for (int i = 0; i < totals.length; i++) {
+				totals[i] += answerCheck[i];
+			}
+		}
+		
+		return totals;
+	}
+}

@@ -1,0 +1,29 @@
+public abstract class Question {
+    
+    private String question;
+    private String [] answer;
+    
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+    
+    public void setAnswer(String [] answer) {
+        this.answer = new String[answer.length];
+        
+        for (int i = 0; i < answer.length; i++) {
+            this.answer[i] = answer[i];
+        }
+    }
+    
+    public String getQuestion() {
+        return this.question;
+    }
+    
+    public String [] getAnswer() {
+        return this.answer;
+    }
+    
+    public abstract int [] getAnswer() {
+    	
+    }
+}

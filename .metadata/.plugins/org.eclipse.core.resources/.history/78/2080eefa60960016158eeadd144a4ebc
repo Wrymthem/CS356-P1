@@ -1,0 +1,18 @@
+public class MultiAnswer extends Question {
+    private int [] answer;
+    private [] int solution;
+    
+    public void setAnswer(int [] answer) {
+        this.answer = new int[answer.length];
+        
+        for (int i = 0; i < answer.length; i++) {
+            this.answer[i] = answer[i];
+        }
+    }
+    
+    
+    
+    public int [] getSolution() {
+    	return answer;
+    }
+}
